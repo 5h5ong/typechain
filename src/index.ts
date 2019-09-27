@@ -36,6 +36,7 @@ const genesisBlock: Block = new Block(
   'Hello world!',
   571057120569
 );
+
 let blockchain: Block[] = [genesisBlock];
 const getBlockChain = (): Block[] => blockchain;
 const getLatestBlock = (): Block => blockchain[blockchain.length - 1];
