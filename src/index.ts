@@ -85,9 +85,9 @@ const isBlockValid = (cadidateBlock: Block, previousBlock: Block): boolean => {
   } else return true;
 };
 const addBlock = (cadidateBlock: Block): void => {
-  if(isBlockValid(cadidateBlock, getLatestBlock()) {
+  if (isBlockValid(cadidateBlock, getLatestBlock())) {
     blockchain.push(cadidateBlock);
   }
-}
+};
 
 export {};
