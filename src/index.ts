@@ -101,6 +101,9 @@ createNewBlock('나는 두번째 블럭이야');
 createNewBlock('나는 세번째 블럭이야');
 createNewBlock('나는 네번째 블럭이야');
 createNewBlock('나는 다섯번째 블럭이야');
+createNewBlock(
+  'typescript is most beautiful in this world. That thing is saved my life!!'
+);
 
 console.log(getBlockChain());
 
