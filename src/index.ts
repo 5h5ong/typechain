@@ -12,7 +12,11 @@ class Block {
     previousHash: string,
     data: string,
     timestamp: number
-  ): string => CryptoJS.SHA256(index, previousHash, data, timestamp).toString();
+  ): string => {
+    const tobeUsedHash = `${index}${previousHash}${data}${timestamp}`;
+    const hash = CryptoJS.SHA256(tobeUsedHash);
+    return hash;
+  };
   static validateStructure = (block: Block): boolean =>
     typeof block.index === 'number' &&
     typeof block.hash === 'string' &&
@@ -64,6 +68,7 @@ const createNewBlock = (data: string): Block => {
     data,
     newTimestamp
   );
+  addBlock(newBlock);
   return newBlock;
 };
 const getHashForBlock = (block: Block): string =>
@@ -89,5 +94,13 @@ const addBlock = (cadidateBlock: Block): void => {
     blockchain.push(cadidateBlock);
   }
 };
+
+createNewBlock('나는 첫번째 블럭이야');
+createNewBlock('나는 두번째 블럭이야');
+createNewBlock('나는 세번째 블럭이야');
+createNewBlock('나는 네번째 블럭이야');
+createNewBlock('나는 다섯번째 블럭이야');
+
+console.log(getBlockChain());
 
 export {};
