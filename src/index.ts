@@ -15,7 +15,7 @@ class Block {
   ): string => {
     const tobeUsedHash = `${index}${previousHash}${data}${timestamp}`;
     const hash = CryptoJS.SHA256(tobeUsedHash);
-    return hash;
+    return hash.toString();
   };
   static validateStructure = (block: Block): boolean =>
     typeof block.index === 'number' &&
@@ -80,6 +80,7 @@ const getHashForBlock = (block: Block): string =>
   );
 const isBlockValid = (cadidateBlock: Block, previousBlock: Block): boolean => {
   if (!Block.validateStructure(cadidateBlock)) {
+    console.error(`validate error`);
     return false;
   } else if (previousBlock.index + 1 !== cadidateBlock.index) {
     return false;
